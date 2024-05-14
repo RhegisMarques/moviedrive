@@ -5,6 +5,7 @@ import {
   ScrollView,
   TouchableOpacity,
   Image,
+  SafeAreaView,
 } from "react-native";
 import React, { useState, useEffect } from "react";
 import { useNavigation, useRoute } from "@react-navigation/native";
@@ -150,9 +151,7 @@ export default function MovieScreen() {
 
   return (
     <ScrollView
-      contentContainerStyle={{
-        paddingBottom: 20,
-      }}
+      contentContainerStyle={{ paddingBottom: 20 }}
       className="flex-1 ng-neutral-900"
     >
       {/* Back Button and Movie Poster */}
@@ -162,7 +161,7 @@ export default function MovieScreen() {
           {/* Back Icon */}
           <View className="bg-[#2496ff] p-2 rounded-full items-center justify-center">
             <TouchableOpacity onPress={() => navigation.goBack()}>
-              <ChevronLeftIcon size={30} strokeWidth={2} color="white" />
+              <ChevronLeftIcon size={30} strokeWidth={2.5} color="white" />
             </TouchableOpacity>
           </View>
 
@@ -189,10 +188,7 @@ export default function MovieScreen() {
                   image500(movie.poster_path) ||
                   "https://th.bing.com/th/id/R.4dc29c271625202308a26ed96d1d962d?rik=qKnKhs7roVDpXA&pid=ImgRaw&r=0",
               }}
-              style={{
-                width,
-                height: height * 0.55,
-              }}
+              style={{ width, height: height * 0.55 }}
             />
           </View>
         )}

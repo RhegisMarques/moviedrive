@@ -1,5 +1,12 @@
 import React, { useState } from "react";
-import { View, Text, Image, TouchableOpacity, TextInput, StyleSheet } from "react-native";
+import {
+  View,
+  Text,
+  Image,
+  TouchableOpacity,
+  TextInput,
+  StyleSheet,
+} from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { StatusBar } from "expo-status-bar";
 
@@ -20,7 +27,6 @@ export default function WelcomeScreen() {
       {/* Titulo e Botão */}
       <View style={styles.contentContainer}>
         <View style={styles.logoContainer}>
-
           <Image
             source={require("../../assets/images/logo.png")}
             style={{
@@ -29,31 +35,31 @@ export default function WelcomeScreen() {
             }}
             resizeMode="contain" // Use 'contain' para garantir que a imagem se ajuste ao tamanho especificado sem distorção
           />
-
-          <Text style={styles.description}>Descubra sua próxima obsessão cinematográfica.</Text>
         </View>
 
         {/* Caixa de texto para o nome de usuário */}
-        <TextInput
+        {/* <TextInput
           style={styles.input}
           placeholder="Username"
           onChangeText={setUsername}
           value={username}
-        />
+        /> */}
         {/* Caixa de texto para o nome de senha */}
-        <TextInput
+        {/* <TextInput
           style={styles.input}
           placeholder="Password"
           onChangeText={setUserpassword}
           value={userpassword}
-        />
+        /> */}
 
         <TouchableOpacity
-          style={styles.exploreButton}
-          onPress={() => navigation.navigate("HomeTab")}
-        >
-          <Text style={styles.exploreButtonText}>Drive</Text>
+          style={styles.exploreButton}onPress={() => navigation.navigate("HomeTab")}>
+          <Text style={styles.exploreButtonText}>ENTRAR</Text>
         </TouchableOpacity>
+
+        <Text style={styles.description}>
+          Descubra sua próxima obsessão cinematográfica.
+        </Text>
       </View>
     </View>
   );
@@ -97,9 +103,10 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   description: {
-    color: "white",
+    color: "#ff00d6",
     textAlign: "center",
-    marginBottom: 20,
+    marginTop: 20,
+    fontWeight: "bold",
   },
   input: {
     backgroundColor: "white",

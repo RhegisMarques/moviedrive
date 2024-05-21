@@ -9,7 +9,8 @@ export default function Cast({ cast, navigation }) {
         onPress={() => navigation.navigate("Person", item)}
         className="items-start mr-6"
       >
-        <View className="items-start justify-start w-full h-[120] rounded-sm overflow-hidden ">
+        <View className="overflow-hidden rounded-full h-20 w-20 items-center border-neutral-500  ">
+
           <Image
             className="rounded-lg h-[100%] w-full"
             source={{

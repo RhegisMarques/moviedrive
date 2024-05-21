@@ -61,12 +61,10 @@ export default function SavedScreen() {
         >
           <View className="mt-12 p-4">
             <View className="flex-row justify-between items-center">
-              <Text className="font-bold text-xl text-white ">
-                Sua Lista
-              </Text>
+              <Text className="font-bold text-xl text-white ">Sua Lista</Text>
               <TouchableOpacity
                 onPress={clearSavedMovies}
-                className="bg-blue-800 py-2 px-4 rounded-lg"
+                className="bg-[#f01dc6] py-2 px-4 rounded-lg"
               >
                 <Text className="font-bold text-lg text-white">Clear</Text>
               </TouchableOpacity>
@@ -90,9 +88,9 @@ export default function SavedScreen() {
                       }}
                     />
                     <Text className="text-gray-300 font-bold text-lg ml-1">
-                    {movie.title && movie.title.length > 15
-                      ? movie.title.slice(0, 15) + "..."
-                      : movie.title}
+                      {movie.title && movie.title.length > 15
+                        ? movie.title.slice(0, 15) + "..."
+                        : movie.title}
                     </Text>
                   </TouchableOpacity>
                 </View>

@@ -159,14 +159,14 @@ export default function MovieScreen() {
         {/* Back and Star Icon */}
         <View className="z-20 w-full flex-row justify-between items-center px-4 mt-12 absolute">
           {/* Back Icon */}
-          <View className="bg-[#2496ff] p-2 rounded-full items-center justify-center">
+          <View className="bg-[#ff00d6] p-2 rounded-full items-center justify-center">
             <TouchableOpacity onPress={() => navigation.goBack()}>
               <ChevronLeftIcon size={30} strokeWidth={2.5} color="white" />
             </TouchableOpacity>
           </View>
 
           {/* Star Icon */}
-          <View className="bg-[#2496ff] p-2 rounded-full items-center justify-center">
+          <View className="bg-[#ff00d6] p-2 rounded-full items-center justify-center">
             <TouchableOpacity onPress={toggleFavouriteAndSave}>
               <StarIcon
                 size={30}
@@ -215,12 +215,12 @@ export default function MovieScreen() {
         {/* Movie Title */}
 
         <View className="space-y-3 p-4">
-          <Text className="text-white text-left text-2xl font-bold tracking-widest">
+          <Text className="text-white text-center text-2xl font-bold tracking-widest">
             {movie?.title}
           </Text>
 
           {/* Genres */}
-          <Text className="flex-row space-x-2">
+          <Text className="flex-row space-x-2 mx-4 text-center">
             {movie?.genres?.map((genre, index) => {
               let showDot = index + 1 != movie.genres.length;
 
@@ -237,8 +237,8 @@ export default function MovieScreen() {
 
           {/* Release Year, Runtime */}
           {movie?.id ? (
-            <View className=" bg-[#f01dc6] p-2 w-3/4 rounded-lg]">
-              <Text className="text-white font-semibold text-base text-left">
+            <View className=" bg-[#f01dc6] p-2 w-3/4 rounded-lg flex-row justify-center">
+              <Text className="text-neutral-100 font-semibold text-base text-center">
                 {formatPopularity(movie?.popularity)}
                 {" * "}
                 {formatRuntime(movie?.runtime)} {}{" "}
@@ -248,7 +248,7 @@ export default function MovieScreen() {
           ) : null}
 
           {/* Description */}
-          <Text className="text-neutral-300 text-sm tracking-widest leading-6">
+          <Text className="text-neutral-300 mx-2 tracking-wide text-justify">
             {movie?.overview}
           </Text>
 

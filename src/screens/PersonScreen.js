@@ -71,9 +71,9 @@ export default function PersonScreen() {
       <View className="flex-row justify-between absolute right-0 top-o mx-4 z-10 my-3">
         <TouchableOpacity
           onPress={() => navigation.goBack()}
-          className="rounded-xl p-2 bg-[#2496ff]"
+          className="rounded-xl p-2 bg-[#f01dc6]"
         >
-          <XMarkIcon size="28" strokeWidth={2.5} color="red" />
+          <XMarkIcon size="28" strokeWidth={2.5} color="#fff" />
         </TouchableOpacity>
       </View>
 
@@ -115,9 +115,9 @@ export default function PersonScreen() {
               </Text>
             </View>
           </View>
-          <View className="my-6 mx-4 space-y-2">
+          <View className="my-6 mx-4 space-y-2 justify">
             <Text className="text-white text-lg font-bold">Biography</Text>
-            <Text className="text-neutral-100 tracking-wide leading-6">
+            <Text className="text-neutral-300 mx-2 tracking-wide text-justify">
               {person?.biography ? person.biography : "N / A"}
             </Text>
           </View>

@@ -237,7 +237,7 @@ export default function MovieScreen() {
 
           {/* Release Year, Runtime */}
           {movie?.id ? (
-            <View className=" bg-[#f01dc6] p-2 w-3/4 rounded-lg flex-row justify-center">
+            <View className=" bg-[#f01dc6] p-2 w-3/4 rounded-lg mx-auto utility">
               <Text className="text-neutral-100 font-semibold text-base text-center">
                 {formatPopularity(movie?.popularity)}
                 {" * "}

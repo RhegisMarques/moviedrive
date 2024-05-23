@@ -4,7 +4,6 @@ import {
   ScrollView,
   Image,
   ImageBackground,
-  Touchable,
   TouchableOpacity,
   Dimensions,
 } from "react-native";
@@ -17,12 +16,10 @@ const { width, height } = Dimensions.get("window");
 
 export default function SavedScreen() {
   const navigation = useNavigation();
-
   const [savedMovies, setSavedMovies] = useState([]);
 
   useFocusEffect(
     useCallback(() => {
-      // Load saved movies from AsyncStorage when the screen gains focus
       const loadSavedMovies = async () => {
         try {
           const savedMovies = await AsyncStorage.getItem("savedMovies");
@@ -49,7 +46,7 @@ export default function SavedScreen() {
 
   return (
     <ScrollView>
-      <View className=" relative flex-1">
+      <View className="relative flex-1">
         <ImageBackground
           source={require("../../assets/images/homescreen.png")}
           style={{
@@ -61,10 +58,10 @@ export default function SavedScreen() {
         >
           <View className="mt-12 p-4">
             <View className="flex-row justify-between items-center">
-              <Text className="font-bold text-xl text-white ">Sua Lista</Text>
+              <Text className="font-bold text-xl text-white">Sua Lista</Text>
               <TouchableOpacity
                 onPress={clearSavedMovies}
-                className="bg-[#f01dc6] py-2 px-4 rounded-lg"
+                className="bg-black border-2 border-white py-2 px-4 rounded-lg"
               >
                 <Text className="font-bold text-lg text-white">Clear</Text>
               </TouchableOpacity>
@@ -72,26 +69,35 @@ export default function SavedScreen() {
 
             <View className="flex-column justify-between flex-wrap">
               {savedMovies.map((movie, index) => (
-                <View className="flex-row mt-4 " key={index}>
+                <View className="flex-row mt-4" key={index}>
                   <TouchableOpacity
                     key={index}
                     onPress={() => navigation.push("Movie", movie)}
+                    className="flex-row items-center"
                   >
                     <Image
                       source={{
                         uri: image500(movie.poster_path),
                       }}
-                      className="w-40 h-48 rounded-3xl"
+                      className="rounded-3xl"
                       style={{
                         width: width * 0.41,
                         height: height * 0.25,
                       }}
                     />
-                    <Text className="text-gray-300 font-bold text-lg ml-1">
-                      {movie.title && movie.title.length > 15
-                        ? movie.title.slice(0, 15) + "..."
-                        : movie.title}
-                    </Text>
+                    <View className="ml-4">
+                      <Text
+                        className="text-gray-300 font-bold text-lg"
+                        style={{ flexShrink: 1 }}
+                      >
+                        {movie.title && movie.title.length > 15
+                          ? movie.title.slice(0, 15) + "..."
+                          : movie.title}
+                      </Text>
+                      <Text className="text-gray-300 text-md">
+                        {movie.release_date}
+                      </Text>
+                    </View>
                   </TouchableOpacity>
                 </View>
               ))}

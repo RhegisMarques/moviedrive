@@ -1,19 +1,14 @@
-import React, { useState } from "react";
-import {
-  View,
-  Text,
-  Image,
-  TouchableOpacity,
-  TextInput,
-  StyleSheet,
-} from "react-native";
+import React from "react";
+import { View, Text, Image, TouchableOpacity, StyleSheet } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { StatusBar } from "expo-status-bar";
 
 export default function WelcomeScreen() {
   const navigation = useNavigation();
-  const [username, setUsername] = useState("");
-  const [userpassword, setUserpassword] = useState("");
+
+  // Simulando o nome do usuário
+  const username = "Ryan Gosling";
+
   return (
     <View style={styles.container}>
       <Image
@@ -24,36 +19,28 @@ export default function WelcomeScreen() {
 
       <StatusBar style="light" />
 
-      {/* Titulo e Botão */}
+      <View style={styles.logoContainer}>
+        <Image
+          source={require("../../assets/images/logo.png")}
+          style={styles.logoImage}
+          resizeMode="contain"
+        />
+      </View>
+
       <View style={styles.contentContainer}>
-        <View style={styles.logoContainer}>
+        {/* Imagem circular */}
+        <View style={styles.circleContainer}>
           <Image
-            source={require("../../assets/images/logo.png")}
-            style={{
-              width: 300, // Ajuste o tamanho conforme necessário
-              height: 50, // Ajuste o tamanho conforme necessário
-            }}
-            resizeMode="contain" // Use 'contain' para garantir que a imagem se ajuste ao tamanho especificado sem distorção
+            source={require("../../assets/images/avatar.png")} // Substitua pelo caminho da sua imagem
+            style={styles.circleImage}
           />
+          <Text style={styles.username}>{username}</Text>
         </View>
 
-        {/* Caixa de texto para o nome de usuário */}
-        {/* <TextInput
-          style={styles.input}
-          placeholder="Username"
-          onChangeText={setUsername}
-          value={username}
-        /> */}
-        {/* Caixa de texto para o nome de senha */}
-        {/* <TextInput
-          style={styles.input}
-          placeholder="Password"
-          onChangeText={setUserpassword}
-          value={userpassword}
-        /> */}
-
         <TouchableOpacity
-          style={styles.exploreButton}onPress={() => navigation.navigate("HomeTab")}>
+          style={styles.exploreButton}
+          onPress={() => navigation.navigate("HomeTab")}
+        >
           <Text style={styles.exploreButtonText}>ENTRAR</Text>
         </TouchableOpacity>
 
@@ -68,7 +55,7 @@ export default function WelcomeScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
+    justifyContent: "flex-start",
     alignItems: "center",
   },
   backgroundImage: {
@@ -76,45 +63,42 @@ const styles = StyleSheet.create({
     width: "100%",
     height: "100%",
   },
+  logoContainer: {
+    alignItems: "center",
+    marginTop: 50,
+    marginBottom: 20,
+  },
+  logoImage: {
+    width: 300,
+    height: 50,
+  },
   contentContainer: {
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
     paddingHorizontal: 20,
   },
-  logoContainer: {
+  circleContainer: {
     alignItems: "center",
     marginBottom: 20,
   },
-  logoBackground: {
-    backgroundColor: "red",
-    padding: 10,
+  circleImage: {
+    width: 100,
+    height: 100,
     borderRadius: 50,
+    resizeMode: "cover",
   },
-  logoText: {
-    color: "white",
-    fontSize: 32,
+  username: {
+    marginTop: 10,
+    color: "#fff",
     fontWeight: "bold",
-  },
-  appName: {
-    color: "white",
-    fontSize: 24,
-    fontWeight: "bold",
-    marginBottom: 10,
+    fontSize: 16,
   },
   description: {
     color: "#ff00d6",
     textAlign: "center",
     marginTop: 20,
     fontWeight: "bold",
-  },
-  input: {
-    backgroundColor: "white",
-    width: "100%",
-    paddingVertical: 10,
-    paddingHorizontal: 20,
-    borderRadius: 10,
-    marginBottom: 20,
   },
   exploreButton: {
     backgroundColor: "#ff00d6",

@@ -5,7 +5,6 @@ import {
   ScrollView,
   TouchableOpacity,
   Image,
-  SafeAreaView,
 } from "react-native";
 import React, { useState, useEffect } from "react";
 import { useNavigation, useRoute } from "@react-navigation/native";
@@ -21,7 +20,7 @@ import Loading from "../components/Loading";
 import Cast from "../components/Cast";
 import PopularMovie from "../components/PopularMovie";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { LinearGradient } from "expo-linear-gradient";
+
 
 var { width, height } = Dimensions.get("window");
 
@@ -159,14 +158,14 @@ export default function MovieScreen() {
         {/* Back and Star Icon */}
         <View className="z-20 w-full flex-row justify-between items-center px-4 mt-12 absolute">
           {/* Back Icon */}
-          <View className="bg-[#ff00d6] p-2 rounded-full items-center justify-center">
+          <View className="bg-[#000] p-2 rounded-full items-center justify-center">
             <TouchableOpacity onPress={() => navigation.goBack()}>
               <ChevronLeftIcon size={30} strokeWidth={2.5} color="white" />
             </TouchableOpacity>
           </View>
 
           {/* Star Icon */}
-          <View className="bg-[#ff00d6] p-2 rounded-full items-center justify-center">
+          <View className="bg-[#000] p-2 rounded-full items-center justify-center">
             <TouchableOpacity onPress={toggleFavouriteAndSave}>
               <StarIcon
                 size={30}
@@ -265,5 +264,6 @@ export default function MovieScreen() {
         </View>
       </View>
     </ScrollView>
+    
   );
 }

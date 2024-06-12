@@ -203,12 +203,9 @@ export default function MovieScreen() {
       >
         <Image
           source={require("../../assets/images/homescreen1.png")}
-          style={{
-            width,
-            height,
-          }}
+          style={{ flex: 1, width: "100%", height: "100%" }}
           resizeMode="cover"
-          className="absolute top-0 left-0"
+          className="absolute top-0 left-0 bottom-0"
         />
 
         {/* Movie Title */}
@@ -264,6 +261,5 @@ export default function MovieScreen() {
         </View>
       </View>
     </ScrollView>
-    
   );
 }
